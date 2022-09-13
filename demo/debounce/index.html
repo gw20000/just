@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .trigger-btn{
+          padding: 5px;
+          margin: 60px auto 0px;
+          width: 100px;
+         height: 25px;
+         line-height: 25px;
+         background-color: greenyellow;
+         border: 1px solid black;
+         border-radius: 6px;
+         text-align: center;
+         overflow: hidden;
+         white-space: nowrap;
+         text-overflow: ellipsis;
+      }
+    </style>
+</head>
+<body>
+    <div class="trigger-btn"  >click to trigger</div>
+
+    <script type="module" >
+        import myDebounce2 from  "./myDebounce.js"
+        function sayHello(){
+            console.log("hello");
+        }
+        // sayHello();
+
+        const debounceSayHello = myDebounce2(sayHello,2000);
+        // 🌈对promise串联的理解: 
+    //   promise有 未决阶段 和 已决阶段 2个阶段 
+    //  第一个promise的整个阶段作为后续promise的未决阶段，
+    //也就是说，第一个promise已决阶段结束之后，后续promise就进入已决阶段，
+   // 换句话说， 第一个promise处理完了， 它后续promise（第二个promise）对第一个promise的处理结果做进一步处理。
+
+//    同样的， 第三个promise的未决阶段是， 第二promise的整个阶段，
+//    也就是说， 第二个promise已决阶段结束之后，第三个promise就进入已决阶段，
+      // 换句话说， 第2个promise处理完了， 它的后续promise（第三个promise）对第二个promise的处理结果做进一步处理。
+
+    //   依次类推.....
+
+
+            // debounceSayHello()
+            // .then(()=>debounceSayHello()) //这里 return promise  和 不 return promise 还是很有区别的 : 
+             // 区别： 后续primise的状态 将由 当前promise的 已决阶段中return 的promise状态决定，因此，后续promise何时进入已决阶段，要等待的时间 可能会 超过 duration
+            // .then(()=>debounceSayHello());
+          
+
+        //    const excuteStack = async ()=>{
+        //        await debounceSayHello();
+        //        await debounceSayHello();
+        //        await debounceSayHello();
+        //    }
+
+        //    excuteStack();
+
+
+    //事件处理函数
+    const trigger = ()=>{
+        debounceSayHello();
+    }
+    
+    //注册事件
+  const triggerBtn = document.querySelector('.trigger-btn');
+      
+       triggerBtn.addEventListener('click',trigger);
+     
+    </script>
+
+ <!-- 用Proxy 代理 一个对象 ，对象有个count属性，代表点击次数，点击的时候重新给count赋值记录点击次数， 并  同时 通过Proxy 和 Reflect 将count的值渲染到页面。 -->
+</body>
+</html>

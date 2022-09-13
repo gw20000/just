@@ -1,0 +1,17 @@
+h1,h2,h3,h4,h5,body,html,ul,li,p{
+    padding:0px;
+    margin:0px;
+}
+
+body,html{
+    background-color: #f5f5d5;
+    height: 100%;
+    width:100%;
+}
+
+ul {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}

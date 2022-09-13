@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .container{
+              height: 500px;
+              width: 500px;
+              position: relative;
+              border: 1px solid red;
+         }
+
+         .item{
+             position: absolute;
+             height: 50px;
+             width: 50px;
+             background-color: aqua;
+             text-align: center;
+             line-height: 50px;
+             vertical-align: middle;
+         }
+    </style>
+</head>
+<body>
+     <div class="container">
+            <div class="item">move</div>
+     </div>
+    <script type="module"> 
+       import {just} from "./sports.js" 
+
+      const dom = document.querySelector('.item');
+
+
+       async  function movePath(){
+           await just.moveTo(dom,0,100,"left");
+           await just.moveTo(dom,0,100,"top");
+           await  just.moveTo(dom,100,100,"left");
+           await just.moveTo(dom,100,100,"top");
+       }
+
+        movePath();
+
+</script>
+</body>
+</html>

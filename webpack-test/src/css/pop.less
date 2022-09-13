@@ -1,0 +1,56 @@
+@import "./mixin.less";
+
+@keyframes pop_animation{
+    0%{   opacity: 0;
+          transform: translate(-50%,50%);
+    }
+    20%{
+           opacity: 1;
+          transform: translate(-50%,-50%);
+    }
+    80%{
+           opacity: 1;
+          transform: translate(-50%,-50%);
+    }
+    100%{
+            opacity: 0;
+          transform: translate(-50%,-100%);
+    }
+
+}
+
+
+.pop{
+      
+      .center();
+      z-index: 999;
+      border-radius:5px;
+	  padding: 10px 20px;
+      box-sizing: border-box;
+      border: 1px solid gainsboro;
+      box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+     &>img{
+         width:100%;
+     }
+    &>div{
+        color:#fff;
+    }
+//    animation: pop 3s  ease-in-out forwards;   
+
+  
+     
+}
+
+.normal {
+    background-color: rgb(8, 72, 233);
+}
+.warn {
+     background-color: rgb(236, 236, 35);
+}
+.success{
+    background-color: yellowgreen;
+}
+.fail{
+    background-color: rgb(198, 92, 92);
+
+}
