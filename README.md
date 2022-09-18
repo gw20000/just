@@ -1,2 +1,2 @@
 # just
-a public universal wheel for JavaScript  attached with some demos
+a  universal JavaScript wheel
