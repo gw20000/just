@@ -22,7 +22,7 @@
 
 
   /* harmony import */ var _b_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-  /* module decorator */ module = __webpack_require__.hmd(module);  // 阻止 使用 common js 模块化规范 ，并提示报错 
+  /* module decorator */ module = __webpack_require__.hmd(module);  // 因为你使用了ESM导出，所以webpack 阻止你在代码中修改 moudel.exports 的值 ，因为它是webpack模块的导出内容  即 如果你使用了ESM导出，那么 webpack编译结果 将阻止你 使用 common js 模块化规范 module.exports = xxx 形式的导出操作，并提示报错 提示你使用 ESM 模块化 导出 。 //简单讲 ，如果你使用了ESM ，那么 你就不能使用Common JS  ,只能二者选其一。 
 
 
       console.log("module a excutes");
@@ -132,6 +132,7 @@
   /******/
   /******/ 	/* webpack/runtime/harmony module decorator */
     //我： the return value is not the origin/primitive module you pass in , but throught it ,you can access the attrs of origin/primitive module : prototype chain inheritary and  define  cap fn (圆形链继承 ， 定义拦截)
+    // 我：如果你有使用ESM模块化规范(的导入 或 导出 )， webpack将阻止你在代码中 使用 common js 模块化规范的 module.exports =xxx  的导出 
   /******/ 	(() => {
   /******/ 		__webpack_require__.hmd = (module) => {
   /******/ 			module = Object.create(module);
