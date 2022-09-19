@@ -1,15 +1,15 @@
 {
   "name": "just",
   "version": "1.0.0",
-  "description": "",
+  "description": "a public universal JavaScript wheel",
   "scripts": {
     "start": "webpack serve",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "KKK",
+  "license": "MIT",
   "devDependencies": {
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.64.4",
